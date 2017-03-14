@@ -135,8 +135,8 @@ DATABASES = {
         'PORT':'3306'  #默认的3306
     }
 }
-STATIC_ROOT = "/data/xsadmin_project/static/"  #改成静态文件目录
-MEDIA_ROOT = '/data/xsadmin_project/upload/'   #上传文件目录
+STATIC_ROOT = "/data/xsadmin_deploy/static/"  #改成静态文件目录
+MEDIA_ROOT = '/data/xsadmin_deploy/upload/'   #上传文件目录
 SITE_CONFIG = {
     'SITE_NAME':'XS Admin',  #网站标题
     'SITE_DESC':'One powerful tool...', #网站说明
@@ -167,7 +167,7 @@ vi /etc/supervisord.conf
 `shift`+`G`，跳转至文件末尾，`i`插入，在配置文件末尾加入
 ```
 [include]
-files = /data/xsadmin_project/conf/supervisor_*.ini
+files = /data/xsadmin_deploy/conf/supervisor_*.ini
 ```
 重启Supervisor
 ```
@@ -200,7 +200,7 @@ supervisorctl status
 
   #文件上传目录
   location /upload {
-    alias /data/xsadmin_project/upload;
+    alias /data/xsadmin_deploy/upload;
     expires 30d;
     access_log off;
   }
@@ -208,7 +208,7 @@ supervisorctl status
   #静态资源目录，让nginx处理静态文件，速度更快。
   #需要在Django里面配置STATIC_ROOT并运行python manage.py collectstatic
   location /static {
-    alias /data/xsadmin_project/static;
+    alias /data/xsadmin_deploy/static;
     expires 30d;
     access_log off;
   }
@@ -251,13 +251,13 @@ server {
   charset utf-8;
   client_max_body_size 75M;
   location /upload {
-    alias /data/xsadmin_project/upload;
+    alias /data/xsadmin_deploy/upload;
     expires 30d;
     access_log off;
   }
 
   location /static {
-    alias /data/xsadmin_project/static;
+    alias /data/xsadmin_deploy/static;
     expires 30d;
     access_log off;
   }
