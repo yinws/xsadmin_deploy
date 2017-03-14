@@ -1,6 +1,8 @@
 # XsAdmin项目部署说明
 一步一步教你部署xsadmin，下文中使用CentOS 7 x64，默认用root，如用其他用户登录，执行命令前面要加`sudo`
 
+如有任何问题，欢迎[提出Issues](https://github.com/alishtory/xsadmin_deploy/issues)。同时欢迎Fork & Pull requests共同维护本文档 :)
+
 ## 1. 安装前准备
 ### 1.1 安装LNMP环境
 #### 1.1.1 一键LNMP
