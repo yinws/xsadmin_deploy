@@ -109,7 +109,7 @@ virtualenv env
 
 首先，激活virtualenv
 ```
-source env/bin/active
+source env/bin/activate
 ```
 切换到Django项目目录
 ```
